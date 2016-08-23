@@ -1,16 +1,18 @@
 /* VUE APPLICATION IMPORTS */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Database from './plugins/database'
 import Application from './application'
 
 /* CONFIGURE VUE PLUGINS */
 Vue.use(VueRouter)
+Vue.use(Database)
 
 /* CONFIGURE & RUN ROUTED APPLICATION */
 var router = new VueRouter()
 
-import PeopleListRoute from './routes/people-list'
-import PersonDetailsRoute from './routes/person-details'
+import PeopleRoute from './routes/people'
+import PersonRoute from './routes/person'
 
 router.redirect({
     '/': '/people',
@@ -19,12 +21,12 @@ router.redirect({
 
 router.map({
     '/people': {
-        name: 'homepage',
-        component: PeopleListRoute
+        name: 'people',
+        component: PeopleRoute
     },
     '/person/:id': {
-        name: 'person-details',
-        component: PersonDetailsRoute
+        name: 'person',
+        component: PersonRoute
     }
 })
 
