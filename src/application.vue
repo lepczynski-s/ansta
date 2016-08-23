@@ -4,6 +4,9 @@
 
 <script>
 export default {
+    ready() {
+        window.app = this
+    }
 }
 </script>
 
