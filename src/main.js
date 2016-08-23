@@ -1,8 +1,31 @@
+/* VUE APPLICATION IMPORTS */
 import Vue from 'vue'
-import App from './App'
+import VueRouter from 'vue-router'
+import Application from './application'
 
-/* eslint-disable no-new */
-new Vue({
-  el: 'body',
-  components: { App }
+/* CONFIGURE VUE PLUGINS */
+Vue.use(VueRouter)
+
+/* CONFIGURE & RUN ROUTED APPLICATION */
+var router = new VueRouter()
+
+import PeopleListRoute from './routes/people-list'
+import PersonDetailsRoute from './routes/person-details'
+
+router.redirect({
+    '/': '/people',
+    '*': '/people'
 })
+
+router.map({
+    '/people': {
+        name: 'homepage',
+        component: PeopleListRoute
+    },
+    '/person/:id': {
+        name: 'person-details',
+        component: PersonDetailsRoute
+    }
+})
+
+router.start(Application, 'app')
