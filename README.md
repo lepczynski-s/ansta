@@ -2,6 +2,8 @@
 
 > Example people-listing single page application using VueJS
 
+You can see working deployment here, on [GitHub Pages](https://lepczynski-s.github.io/ansta).
+
 For the sake of an example application uses an in-memory only database repository
 implemented using NeDB Datastore and wrapped as a custom Vue plugin.
 
