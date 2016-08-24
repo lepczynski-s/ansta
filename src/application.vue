@@ -37,10 +37,6 @@
 
 <script>
 export default {
-    ready() {
-        // TODO: Remove it
-        window.app = this
-    }
 }
 </script>
 
